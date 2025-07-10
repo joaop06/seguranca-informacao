@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
-import { Button } from '@/components/ui/button.jsx'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Badge } from '@/components/ui/badge.jsx'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.jsx'
-import { Shield, Lock, Eye, AlertTriangle, Key, Bug, Globe, Users, BookOpen, ChevronRight, CheckCircle } from 'lucide-react'
-import Simulado from './components/Simulado.jsx'
 import './App.css'
+import React, { useState } from 'react'
+import Simulado from './components/Simulado.jsx'
+import { Badge } from '@/components/ui/badge.jsx'
+import { Button } from '@/components/ui/button.jsx'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.jsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
+import { Shield, Lock, Eye, AlertTriangle, Key, Bug, Globe, Users, BookOpen, ChevronRight, CheckCircle } from 'lucide-react'
 
 // Importando as imagens
-import securityHero from './assets/security-hero.png'
+import malware from './assets/malware.png'
 import ciaTriad from './assets/cia-triad.png'
+import cryptography from './assets/cryptography.png'
+import securityHero from './assets/security-hero.png'
 import attackSurface from './assets/attack-surface.png'
 import socialEngineering from './assets/social-engineering.png'
-import cryptography from './assets/cryptography.png'
-import malware from './assets/malware.png'
 import webVulnerabilities from './assets/web-vulnerabilities.png'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('fundamentos')
   const [mostrarSimulado, setMostrarSimulado] = useState(false)
+  const [activeSection, setActiveSection] = useState('fundamentos')
 
   const sections = [
     {
@@ -434,8 +434,8 @@ function App() {
                 <h1 className="text-2xl font-bold text-gray-800">Segurança da Informação</h1>
               </div>
               <div className="flex items-center space-x-4">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={() => setMostrarSimulado(false)}
                 >
                   <BookOpen className="h-4 w-4 mr-2" />
@@ -482,11 +482,11 @@ function App() {
                 Domine os Fundamentos da Segurança Digital
               </h2>
               <p className="text-xl mb-8 text-blue-100">
-                Aprenda os conceitos essenciais para proteger informações e sistemas 
+                Aprenda os conceitos essenciais para proteger informações e sistemas
                 contra ameaças cibernéticas modernas.
               </p>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-white text-blue-600 hover:bg-blue-50"
                 onClick={() => document.getElementById('content').scrollIntoView({ behavior: 'smooth' })}
               >
@@ -494,9 +494,9 @@ function App() {
               </Button>
             </div>
             <div className="lg:w-1/2">
-              <img 
-                src={securityHero} 
-                alt="Segurança da Informação" 
+              <img
+                src={securityHero}
+                alt="Segurança da Informação"
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
             </div>
@@ -521,8 +521,8 @@ function App() {
               {sections.map((section) => {
                 const IconComponent = section.icon
                 return (
-                  <TabsTrigger 
-                    key={section.id} 
+                  <TabsTrigger
+                    key={section.id}
                     value={section.id}
                     className="flex flex-col items-center p-3 text-xs lg:text-sm"
                   >
@@ -541,8 +541,8 @@ function App() {
                   <Card className="overflow-hidden">
                     <div className="flex flex-col lg:flex-row">
                       <div className="lg:w-1/3">
-                        <img 
-                          src={section.image} 
+                        <img
+                          src={section.image}
                           alt={section.title}
                           className="w-full h-64 lg:h-full object-cover"
                         />
@@ -557,7 +557,7 @@ function App() {
                             {section.content.summary}
                           </CardDescription>
                         </CardHeader>
-                        
+
                         <CardContent className="px-0">
                           <div className="mb-6">
                             <h4 className="text-lg font-semibold mb-3 text-blue-700">
@@ -597,7 +597,7 @@ function App() {
                                 <p className="text-gray-700 mb-4">
                                   {concept.description}
                                 </p>
-                                
+
                                 <div className="grid md:grid-cols-2 gap-4">
                                   <div>
                                     <h5 className="font-medium text-red-600 mb-2">Exemplos de Violação:</h5>
@@ -610,7 +610,7 @@ function App() {
                                       ))}
                                     </ul>
                                   </div>
-                                  
+
                                   <div>
                                     <h5 className="font-medium text-green-600 mb-2">Mecanismos de Proteção:</h5>
                                     <ul className="space-y-1">
@@ -696,7 +696,7 @@ function App() {
                                   <div key={index} className="border rounded-lg p-4">
                                     <h5 className="font-medium text-gray-800 mb-2">{technique.title}</h5>
                                     <p className="text-gray-600 mb-3">{technique.description}</p>
-                                    
+
                                     {technique.variants && (
                                       <div className="mb-3">
                                         <h6 className="text-sm font-medium text-purple-600 mb-1">Variações:</h6>
@@ -788,7 +788,7 @@ function App() {
                                 <p className="text-gray-600 mb-4">
                                   {section.content.detailedContent.symmetricCrypto.description}
                                 </p>
-                                
+
                                 <div className="space-y-3">
                                   <div>
                                     <h5 className="font-medium text-green-600 mb-1">Vantagens:</h5>
@@ -801,7 +801,7 @@ function App() {
                                       ))}
                                     </ul>
                                   </div>
-                                  
+
                                   <div>
                                     <h5 className="font-medium text-red-600 mb-1">Desvantagens:</h5>
                                     <ul className="space-y-1">
@@ -835,7 +835,7 @@ function App() {
                                 <p className="text-gray-600 mb-4">
                                   {section.content.detailedContent.asymmetricCrypto.description}
                                 </p>
-                                
+
                                 <div className="space-y-3">
                                   <div>
                                     <h5 className="font-medium text-green-600 mb-1">Vantagens:</h5>
@@ -848,7 +848,7 @@ function App() {
                                       ))}
                                     </ul>
                                   </div>
-                                  
+
                                   <div>
                                     <h5 className="font-medium text-red-600 mb-1">Desvantagens:</h5>
                                     <ul className="space-y-1">
@@ -920,7 +920,7 @@ function App() {
                                   <div key={index} className="border rounded-lg p-4">
                                     <h5 className="font-medium text-gray-800 mb-2">{type.title}</h5>
                                     <p className="text-gray-600 mb-3">{type.description}</p>
-                                    
+
                                     <div className="grid md:grid-cols-2 gap-4">
                                       <div>
                                         <h6 className="text-sm font-medium text-blue-600 mb-1">Características:</h6>
@@ -933,7 +933,7 @@ function App() {
                                           ))}
                                         </ul>
                                       </div>
-                                      
+
                                       {type.infection && (
                                         <div>
                                           <h6 className="text-sm font-medium text-red-600 mb-1">Métodos de Infecção:</h6>
@@ -1041,7 +1041,7 @@ function App() {
                                       </Badge>
                                     </div>
                                     <p className="text-gray-600 mb-3">{vuln.description}</p>
-                                    
+
                                     <div className="grid gap-4">
                                       {vuln.types && (
                                         <div>
@@ -1144,8 +1144,8 @@ function App() {
           <p className="text-xl mb-8 text-gray-300">
             Pronto para verificar o que aprendeu? Faça nosso simulado interativo!
           </p>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="bg-blue-600 hover:bg-blue-700"
             onClick={() => setMostrarSimulado(true)}
           >

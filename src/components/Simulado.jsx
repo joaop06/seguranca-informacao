@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Button } from '@/components/ui/button.jsx'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
+import { Button } from '@/components/ui/button.jsx'
 import { Progress } from '@/components/ui/progress.jsx'
-import { CheckCircle, XCircle, RotateCcw, Trophy, Clock, Target } from 'lucide-react'
+import { ChevronRight, CheckCircle, XCircle, RotateCcw, Trophy, Clock, Target } from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 
 const questoes = [
   // Fundamentos de Segurança da Informação (15 questões)
@@ -1133,8 +1133,8 @@ export default function Simulado() {
   const [categoriaFiltro, setCategoriaFiltro] = useState('Todas')
 
   // Filtrar questões por categoria se necessário
-  const questoesFiltradas = categoriaFiltro === 'Todas' 
-    ? questoes 
+  const questoesFiltradas = categoriaFiltro === 'Todas'
+    ? questoes
     : questoes.filter(q => q.categoria === categoriaFiltro)
 
   const categorias = ['Todas', ...new Set(questoes.map(q => q.categoria))]
@@ -1184,33 +1184,33 @@ export default function Simulado() {
 
   const obterMensagemDesempenho = (pontuacao) => {
     const percentual = (pontuacao / questoesFiltradas.length) * 100
-    if (percentual >= 90) return { 
-      texto: 'Excelente! Você domina os conceitos de segurança da informação!', 
+    if (percentual >= 90) return {
+      texto: 'Excelente! Você domina os conceitos de segurança da informação!',
       cor: 'text-green-600',
       emoji: '🏆'
     }
-    if (percentual >= 80) return { 
-      texto: 'Muito bom! Você tem um sólido conhecimento em segurança.', 
+    if (percentual >= 80) return {
+      texto: 'Muito bom! Você tem um sólido conhecimento em segurança.',
       cor: 'text-blue-600',
       emoji: '🎯'
     }
-    if (percentual >= 70) return { 
-      texto: 'Bom desempenho! Continue aprimorando seus conhecimentos.', 
+    if (percentual >= 70) return {
+      texto: 'Bom desempenho! Continue aprimorando seus conhecimentos.',
       cor: 'text-green-500',
       emoji: '👍'
     }
-    if (percentual >= 60) return { 
-      texto: 'Razoável. Revise alguns conceitos e pratique mais.', 
+    if (percentual >= 60) return {
+      texto: 'Razoável. Revise alguns conceitos e pratique mais.',
       cor: 'text-yellow-600',
       emoji: '📚'
     }
-    if (percentual >= 50) return { 
-      texto: 'Precisa melhorar. Estude mais o conteúdo apresentado.', 
+    if (percentual >= 50) return {
+      texto: 'Precisa melhorar. Estude mais o conteúdo apresentado.',
       cor: 'text-orange-600',
       emoji: '📖'
     }
-    return { 
-      texto: 'Precisa estudar muito mais. Revise todo o conteúdo!', 
+    return {
+      texto: 'Precisa estudar muito mais. Revise todo o conteúdo!',
       cor: 'text-red-600',
       emoji: '🔄'
     }
@@ -1237,7 +1237,7 @@ export default function Simulado() {
     const mensagem = obterMensagemDesempenho(pontuacao)
     const tempo = calcularTempo()
     const estatisticas = obterEstatisticasPorCategoria()
-    
+
     return (
       <div className="max-w-6xl mx-auto p-6">
         <Card className="text-center mb-6">
@@ -1258,14 +1258,14 @@ export default function Simulado() {
                 </div>
                 <div className="text-sm text-gray-600">Questões Corretas</div>
               </div>
-              
+
               <div className="bg-green-50 p-4 rounded-lg">
                 <div className="text-3xl font-bold text-green-600 mb-2">
                   {Math.round((pontuacao / questoesFiltradas.length) * 100)}%
                 </div>
                 <div className="text-sm text-gray-600">Percentual de Acertos</div>
               </div>
-              
+
               <div className="bg-purple-50 p-4 rounded-lg">
                 <div className="text-3xl font-bold text-purple-600 mb-2">
                   {tempo}
@@ -1289,7 +1289,7 @@ export default function Simulado() {
                       <span className="text-sm text-gray-600">
                         {stats.acertos}/{stats.total}
                       </span>
-                      <Badge 
+                      <Badge
                         variant={stats.percentual >= 70 ? "default" : stats.percentual >= 50 ? "secondary" : "destructive"}
                       >
                         {stats.percentual}%
@@ -1316,7 +1316,7 @@ export default function Simulado() {
               {questoesFiltradas.map((questao, index) => {
                 const respostaUsuario = respostas[index]
                 const acertou = respostaUsuario === questao.resposta
-                
+
                 return (
                   <div key={questao.id} className="border rounded-lg p-4">
                     <div className="flex items-start space-x-3 mb-3">
@@ -1335,7 +1335,7 @@ export default function Simulado() {
                           </span>
                         </div>
                         <p className="font-medium mb-3">{questao.pergunta}</p>
-                        
+
                         <div className="space-y-2 mb-3">
                           <div className={`text-sm p-2 rounded ${acertou ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
                             <strong>Sua resposta:</strong> {questao.opcoes[respostaUsuario]}
@@ -1346,7 +1346,7 @@ export default function Simulado() {
                             </div>
                           )}
                         </div>
-                        
+
                         <div className="bg-blue-50 p-3 rounded border-l-4 border-blue-400">
                           <p className="text-sm text-blue-800">
                             <strong>Explicação:</strong> {questao.explicacao}
@@ -1364,8 +1364,8 @@ export default function Simulado() {
                 <RotateCcw className="h-4 w-4 mr-2" />
                 Fazer Novamente
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="flex-1"
               >
@@ -1451,7 +1451,7 @@ export default function Simulado() {
           <div className="space-y-3">
             {questao.opcoes.map((opcao, index) => {
               let buttonClass = "w-full text-left p-4 border rounded-lg transition-all duration-200 hover:shadow-md"
-              
+
               if (mostrarResultado) {
                 if (index === questao.resposta) {
                   buttonClass += " bg-green-100 border-green-500 text-green-800 shadow-md"
@@ -1498,10 +1498,10 @@ export default function Simulado() {
                   {questao.explicacao}
                 </p>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button 
-                  onClick={proximaQuestao} 
+                <Button
+                  onClick={proximaQuestao}
                   className="flex-1"
                   size="lg"
                 >
@@ -1517,9 +1517,9 @@ export default function Simulado() {
                     </>
                   )}
                 </Button>
-                
+
                 {questaoAtual > 0 && (
-                  <Button 
+                  <Button
                     variant="outline"
                     onClick={() => {
                       setQuestaoAtual(questaoAtual - 1)
